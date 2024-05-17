@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormStyleDirective } from './form-style.directive';
 import { ShowIfDirective } from './show-if.directive';
 import { ErrorMessagePipe } from "./error-message.pipe";
+import { DatePipePipe } from './date-pipe.pipe';
 
 @Component({
     selector: 'app-demographic',
@@ -12,7 +13,7 @@ import { ErrorMessagePipe } from "./error-message.pipe";
     providers: [DatePipe],
     templateUrl: './demographic.component.html',
     styleUrl: './demographic.component.css',
-    imports: [FormsModule, ReactiveFormsModule, CommonModule, FormStyleDirective, RouterModule, ShowIfDirective, ErrorMessagePipe]
+    imports: [FormsModule, ReactiveFormsModule, CommonModule, FormStyleDirective, RouterModule, ShowIfDirective, ErrorMessagePipe,DatePipePipe]
 })
 export class DemographicComponent {
   group: FormGroup = new FormGroup({
@@ -28,5 +29,7 @@ export class DemographicComponent {
   get date() { return this.group.get('date'); }
   get age() { return this.group.get('age'); }
   get occupation() { return this.group.get('occupation'); }
+
+  today: Date = new Date();
 }
 

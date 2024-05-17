@@ -7,13 +7,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DatePipePipe implements PipeTransform {
 
-  constructor(private datePipe: DatePipe) {}
+  private datePipe: DatePipe = new DatePipe('en-US');
 
-  transform(value: any, format: string = 'MMMM d, y'): any {
-    if (!value) {
-      return '';
-    }
-    
+  transform(value: any, format: string = 'short'): any {
     return this.datePipe.transform(value, format);
   }
 
