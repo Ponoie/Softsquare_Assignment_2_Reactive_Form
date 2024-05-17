@@ -1,0 +1,35 @@
+<div [formGroup]="group" class="form" appFormStyle>
+    <h1>Info</h1>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name">
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error">
+        Name is required.
+    </div>
+
+    <label for="surname">Surname</label>
+    <input type="text" id="surname" formControlName="surname">
+    <div *ngIf="surname?.invalid && (surname?.dirty || surname?.touched)" class="error">
+        Surname is required.
+    </div>
+
+    <label for="date">Date of Birth</label>
+    <input type="date" id="date" formControlName="date">
+    <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="error">
+        Date of Birth is required.
+    </div>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" formControlName="age">
+    <div *ngIf="age?.invalid && (age?.dirty || age?.touched)" class="error">
+        Age is required.
+    </div>
+
+    <label for="occupation">Occupation</label>
+    <input type="text" id="occupation" formControlName="occupation">
+    <div *ngIf="occupation?.invalid && (occupation?.dirty || occupation?.touched)" class="error">
+        Occupation is required.
+    </div>
+
+    <button [disabled]="!group.valid" [routerLink]="['/login']">Submit</button>
+</div>
